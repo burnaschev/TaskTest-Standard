@@ -1,0 +1,68 @@
+{% extends 'payments/base.html' %}
+
+{% block content %}
+    <h2>Список заявок на оплату</h2>
+    {% for object in object_list %}
+        <div class="card">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th style="width: 20%;">ID заявки</th>
+                    <th style="width: 20%;">Сумма</th>
+                    <th style="width: 20%;">Статус</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ object.id }}</td>
+                    <td>{{ object.amount }}</td>
+                    <td>{{ object.status }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <h5>Реквизиты:</h5>
+                        <table class="inner-table" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th style="width: 20%;">Тип платежа</th>
+                                <th style="width: 20%;">Тип карты</th>
+                                <th style="width: 20%;">ФИО</th>
+                                <th style="width: 20%;">Номер телефона</th>
+                                <th style="width: 20%;">Лимит</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ object.requisites.type_of_payment }}</td>
+                                <td>{{ object.requisites.card_type }}</td>
+                                <td>{{ object.requisites.owner_full_name }}</td>
+                                <td>{{ object.requisites.phone_number }}</td>
+                                <td>{{ object.requisites.limit }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; первая</a>
+                <a href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ object_list.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">следующая</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
