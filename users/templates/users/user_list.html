@@ -1,0 +1,48 @@
+{% extends 'payments/base.html' %}
+
+{% block content %}
+
+    <h2>Список пользователей</h2>
+
+    <div class="card">
+        <table class="inner-table" style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
+            <thead>
+            <tr style="border-bottom: 1px solid #ddd;">
+                <th style="width: 20%; border: 1px solid #ddd;">Имя</th>
+                <th style="width: 20%; border: 1px solid #ddd;">Email</th>
+                <th style="width: 20%; border: 1px solid #ddd;">Номер телефона</th>
+                <th style="width: 20%; border: 1px solid #ddd;">Роль</th>
+            </tr>
+            </thead>
+
+            {% for object in object_list %}
+                <tbody>
+                <tr style="border-bottom: 1px solid #ddd;">
+                    <td style="border: 1px solid #ddd;">{{ object.first_name }}</td>
+                    <td style="border: 1px solid #ddd;">{{ object.email }}</td>
+                    <td style="border: 1px solid #ddd;">{{ object.phone }}</td>
+                    <td style="border: 1px solid #ddd;">{{ object.role }}</td>
+                </tr>
+                </tbody>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; первая</a>
+                <a href="?page={{ page_obj.previous_page_number }}">предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_obj.number }} из {{ object_list.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">следующая</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
