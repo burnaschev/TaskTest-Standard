@@ -8,5 +8,5 @@ app_name = PaymentsConfig.name
 urlpatterns = [
     path('payment/', PaymentRequestListView.as_view(), name='payment-list'),
     path('requisite/', RequisiteListView.as_view(), name='requisite-list'),
-    path('home/', index, name='home')
+    path('', index, name='home')
 ]

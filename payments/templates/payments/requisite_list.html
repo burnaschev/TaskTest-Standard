@@ -3,25 +3,32 @@
 {% block content %}
 
     <h2>Список реквизитов</h2>
- <form method="get" class="form-inline" id="requisite-list-form">
-        <div class="form-row align-items-center">
-            <div class="form-group mx-2">
-                <label for="{{ sort_form.search_query.id_for_label }}">Поиск:</label>
-                {{ sort_form.search_query }}
+    {% if user.is_authenticated %}
+
+        <form method="get" class="form-inline" id="requisite-list-form">
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <label for="{{ sort_form.search_query.id_for_label }}">Поиск:</label>
+                    {{ sort_form.search_query }}
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="{{ sort_form.sort_order.id_for_label }}">Порядок сортировки:</label>
+                    {{ sort_form.sort_order }}
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label for="{{ sort_form.sort_by.id_for_label }}">Сортировка:</label>
+                    {{ sort_form.sort_by }}
+                </div>
+
+                <div class="form-group col-md">
+                    <button type="submit" class="btn btn-outline-primary">Применить сортировку и поиск</button>
+                </div>
             </div>
-            <div class="form-group mx-2">
-                <label for="{{ sort_form.sort_order.id_for_label }}">Порядок сортировки:</label>
-                {{ sort_form.sort_order }}
-            </div>
-            <div class="form-group mx-2">
-                <label for="{{ sort_form.sort_by.id_for_label }}">Сортировка:</label>
-                {{ sort_form.sort_by }}
-            </div>
-            <div class="form-group mx-2">
-                <button type="submit" class="btn btn-primary">Применить сортировку и поиск</button>
-            </div>
-        </div>
-    </form>
+        </form>
+    {% endif %}
+
     <div class="card">
         <table class="inner-table" style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
             <thead>
