@@ -22,6 +22,10 @@ pip install -r requirements.txt
 
 - python manage.py create_fake_payments - Создание рандомной базы данных для данного проекта где содержится 5000 заявок и 100 реквизитов
 
+## API Documentation
+
+API documentation can be found at `http://localhost:8000/docs/`.
+
 
 
 Технические требования
