@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.shortcuts import render
@@ -13,6 +13,7 @@ def is_admin(user):
     return user.role == "admin"
 
 
+@login_required()
 def index(request):
     return render(request, 'payments/home.html')
 

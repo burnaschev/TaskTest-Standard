@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_seed',
+    'rest_framework',
+    'drf_yasg',
 
     'payments',
     'users',
