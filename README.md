@@ -1,3 +1,29 @@
+### Клонирование проекта
+
+git clone https://github.com/burnaschev/Electronics_network
+
+### Создание и активация виртуального окружения
+
+python3 -m venv venv
+source venv/bin/activate
+
+### Переменные окружения
+
+Все необходимые переменные окружения находятся в файле .env_sample
+
+Нужно создать свой переменные окружения в файле .env
+
+### Установка зависимостей
+
+pip install -r requirements.txt
+
+### Команды для работы:
+- python manage.py crsu - Создание суперпользователя
+
+- python manage.py create_fake_payments - Создание рандомной базы данных для данного проекта где содержится 5000 заявок и 100 реквизитов
+
+
+
 Технические требования
 ● Django 2.1+ / Flask 1.0+
 ● PostgreSQL 10+
