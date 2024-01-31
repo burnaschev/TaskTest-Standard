@@ -34,6 +34,9 @@ class UserUpdateView(UpdateView):
     form_class = UserForm
     template_name = 'users/user_form.html'
 
+    def get_success_url(self):
+        return reverse_lazy('payments:home')
+
     def get_object(self, queryset=None):
         return self.request.user
 

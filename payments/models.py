@@ -36,7 +36,6 @@ class Requisite(models.Model):
         verbose_name_plural = 'Реквизиты'
 
 
-# Модель заявки
 class PaymentRequest(models.Model):
     PENDING = 'pending'
     PAID = 'paid'
