@@ -1,6 +1,6 @@
 ### Клонирование проекта
 
-git clone https://github.com/burnaschev/Electronics_network
+git clone https://github.com/burnaschev/TaskTest-Standard
 
 ### Создание и активация виртуального окружения
 
